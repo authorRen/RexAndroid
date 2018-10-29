@@ -1,12 +1,10 @@
-package com.rex.rexandroid.util;
+package com.rex.baselibrary.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v4.util.SimpleArrayMap;
-
-import com.rex.rexandroid.component.RexApp;
 
 import java.util.Map;
 
@@ -16,35 +14,35 @@ import java.util.Map;
  * <p>
  * description:sp工具类
  */
-public class SPUtils {
+public class SpUtils {
     private static final String TAG = "SPUtils";
-    private static final SimpleArrayMap<String, SPUtils> SP_UTILS_MAP = new SimpleArrayMap<>();
+    private static final SimpleArrayMap<String, SpUtils> SP_UTILS_MAP = new SimpleArrayMap<>();
     private SharedPreferences sp;
     private SharedPreferences.Editor edit;
 
     @SuppressLint("CommitPrefEdits")
-    private SPUtils(String spName) {
-        sp = RexApp.getAppContext().getSharedPreferences(spName, Context.MODE_PRIVATE);
+    private SpUtils(Context context, String spName) {
+        sp = context.getSharedPreferences(spName, Context.MODE_PRIVATE);
         edit = sp.edit();
     }
 
-    public static SPUtils getInstance() {
-        return getInstance("");
+    public static SpUtils getInstance(Context context) {
+        return getInstance(context, "");
     }
 
     /**
      * 获取sp实例
      *
      * @param spName sp名
-     * @return {@link SPUtils}
+     * @return {@link SpUtils}
      */
-    private static SPUtils getInstance(String spName) {
+    private static SpUtils getInstance(Context context, String spName) {
         if (isSpace(spName)) {
             spName = TAG;
         }
-        SPUtils spUtils = SP_UTILS_MAP.get(spName);
+        SpUtils spUtils = SP_UTILS_MAP.get(spName);
         if (spUtils == null) {
-            spUtils = new SPUtils(spName);
+            spUtils = new SpUtils(context, spName);
             SP_UTILS_MAP.put(spName, spUtils);
         }
         return spUtils;

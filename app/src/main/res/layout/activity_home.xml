@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_constraintLayout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".component.HomeActivity">
+
+    <com.rex.baselibrary.ui.NoScrollViewPager
+        android:id="@+id/home_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <com.rex.rexandroid.widget.CustomTabView
+        android:id="@+id/home_custom_tab_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_100"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View style="@style/HorizontalLineStyle"
+        app:layout_constraintBottom_toTopOf="@id/home_custom_tab_view"/>
+
+</android.support.constraint.ConstraintLayout>

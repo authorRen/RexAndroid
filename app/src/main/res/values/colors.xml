@@ -48,4 +48,7 @@
     <!--年龄背景-->
     <color name="boy_78b6f8">#78b6f8</color>
     <color name="girl_ffaec1">#ffaec1</color>
+
+    <!-- 分割线的颜色 -->
+    <color name="colorLine">#dddddd</color>
 </resources>

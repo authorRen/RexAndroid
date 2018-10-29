@@ -1,4 +1,4 @@
-package com.rex.rexandroid.compant;
+package com.rex.rexandroid.component;
 
 import android.app.Application;
 import android.content.Context;
