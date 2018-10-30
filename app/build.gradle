@@ -29,4 +29,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "com.android.support:design:${rootProject.ext.supportVersion}"
     implementation project(":baselibrary")
+
+    // 权限请求框架：https://github.com/getActivity/XXPermissions
+    api 'com.hjq:xxpermissions:5.2'
+    // 吐司工具类：https://github.com/getActivity/ToastUtils
+    api 'com.hjq:toast:2.5'
 }

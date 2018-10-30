@@ -18,4 +18,11 @@
         <item name="android:background">@color/colorLine</item>
     </style>
 
+    <!-- 解决启动页白屏的问题 -->
+    <style name="LauncherTheme" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 </resources>

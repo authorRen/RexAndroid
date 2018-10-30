@@ -79,16 +79,16 @@ public class HomeActivity extends CommonActivity implements CustomTabView.OnTabC
     private void onTabItemSelected(int position) {
         switch (position) {
             case 0:
-                mNoScrollViewPager.setCurrentItem(0);
+                mNoScrollViewPager.setCurrentItem(0, false);
                 break;
             case 1:
-                mNoScrollViewPager.setCurrentItem(1);
+                mNoScrollViewPager.setCurrentItem(1, false);
                 break;
             case 2:
-                mNoScrollViewPager.setCurrentItem(2);
+                mNoScrollViewPager.setCurrentItem(2, false);
                 break;
             case 3:
-                mNoScrollViewPager.setCurrentItem(3);
+                mNoScrollViewPager.setCurrentItem(3, false);
                 break;
         }
     }
