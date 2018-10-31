@@ -18,6 +18,7 @@ public class CountdownView extends AppCompatTextView implements Runnable {
 
     private int mCurrentTime;   //当前秒数
     private CharSequence mRecordText;   //记录原有的文本
+    private boolean mFlag;  //标记是否重置了倒计时控件
 
     public CountdownView(Context context) {
         super(context);
@@ -36,6 +37,13 @@ public class CountdownView extends AppCompatTextView implements Runnable {
      */
     public void setTotalTime(int totalTime) {
         this.mTotalTime = totalTime;
+    }
+
+    /**
+     * 重置倒计时控件
+     */
+    public void resetState() {
+        mFlag = true;
     }
 
     @Override
@@ -64,11 +72,12 @@ public class CountdownView extends AppCompatTextView implements Runnable {
 
     @Override
     public void run() {
-        mCurrentTime--;
-        if (mCurrentTime == 0) {
+        if (mCurrentTime == 0 || mFlag) {
             setText(mRecordText);
             setEnabled(true);
+            mFlag = false;
         } else {
+            mCurrentTime--;
             setText(new StringBuilder().append(mCurrentTime).append("\t").append(TIME_UNIT).toString());
             postDelayed(this, 1000);
         }
