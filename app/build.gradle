@@ -12,11 +12,59 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        pro {
+            storeFile file('CaiYi.key')
+            storePassword 'caiyiandroid'
+            keyAlias 'caiyi'
+            keyPassword 'caiyiandroid'
+
+            v2SigningEnabled true
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            //不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //移除无用的resource文件.前提minifyEnabled必须打开
+            shrinkResources true
+            //ZipAlign优化
+            zipAlignEnabled true
+            //设置混淆
+            minifyEnabled true
+            //加载默认混淆配置涵
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.pro
         }
+
+        debug {
+            //ZipAlign优化
+            zipAlignEnabled false
+            //设置混淆
+            minifyEnabled false
+            //加载默认混淆配置涵
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.pro
+        }
+    }
+
+    flavorDimensions "default"  //这个名字貌似随便取，也可以有多个，总之一定要有
+    //多渠道打包
+    productFlavors {
+        kuan {}         //酷安
+        tencent {}      //应用宝
+        baidu {}        //百度
+        xiaomi {}       //小米
+        huawei {}       //华为
+        qihu {}         //360
+
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+
     }
 }
 
@@ -34,4 +82,7 @@ dependencies {
     api 'com.hjq:xxpermissions:5.2'
     // 吐司工具类：https://github.com/getActivity/ToastUtils
     api 'com.hjq:toast:2.5'
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 }
