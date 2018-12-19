@@ -1,4 +1,4 @@
-package com.rex.rexandroid.component;
+package com.rex.rexandroid.component.activity;
 
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;

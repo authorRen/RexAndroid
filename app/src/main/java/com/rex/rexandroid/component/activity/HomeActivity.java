@@ -1,4 +1,4 @@
-package com.rex.rexandroid.component;
+package com.rex.rexandroid.component.activity;
 
 
 import android.support.v4.view.ViewPager;
@@ -7,6 +7,7 @@ import android.view.View;
 import com.rex.baselibrary.ui.NoScrollViewPager;
 import com.rex.rexandroid.R;
 import com.rex.rexandroid.adapter.HomeViewPagerAdapter;
+import com.rex.rexandroid.component.activity.CommonActivity;
 import com.rex.rexandroid.widget.CustomTabView;
 
 

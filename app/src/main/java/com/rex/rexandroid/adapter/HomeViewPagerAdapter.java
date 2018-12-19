@@ -4,7 +4,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 import com.rex.baselibrary.base.BaseFragmentPagerAdapter;
-import com.rex.rexandroid.component.CommonLazyFragment;
+import com.rex.rexandroid.component.fragment.CommonLazyFragment;
 import com.rex.rexandroid.fragment.FindFragment;
 import com.rex.rexandroid.fragment.HomeFragment;
 import com.rex.rexandroid.fragment.MessageFragment;

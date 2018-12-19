@@ -1,4 +1,4 @@
-package com.rex.rexandroid.component;
+package com.rex.rexandroid.component.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

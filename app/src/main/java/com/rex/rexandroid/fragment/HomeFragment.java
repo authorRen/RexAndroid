@@ -4,7 +4,7 @@ import android.os.Build;
 import android.support.v7.widget.Toolbar;
 
 import com.rex.rexandroid.R;
-import com.rex.rexandroid.component.CommonLazyFragment;
+import com.rex.rexandroid.component.fragment.CommonLazyFragment;
 
 /**
  * 首页

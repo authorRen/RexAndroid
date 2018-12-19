@@ -30,7 +30,7 @@
 
         <!-- 启动页面（因为使用了LauncherTheme，所以不要给这个Activity设置screenOrientation属性，会导致崩溃） -->
         <activity
-            android:name=".component.LauncherActivity"
+            android:name=".component.activity.LauncherActivity"
             android:theme="@style/LauncherTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,7 @@
         </activity>
 
         <activity
-            android:name=".component.HomeActivity"
+            android:name=".component.activity.HomeActivity"
             android:alwaysRetainTaskState="true"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar"/>

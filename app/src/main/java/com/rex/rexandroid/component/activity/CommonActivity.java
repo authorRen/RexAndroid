@@ -1,4 +1,4 @@
-package com.rex.rexandroid.component;
+package com.rex.rexandroid.component.activity;
 
 import android.content.pm.ActivityInfo;
 

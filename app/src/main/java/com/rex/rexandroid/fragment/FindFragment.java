@@ -1,7 +1,7 @@
 package com.rex.rexandroid.fragment;
 
 import com.rex.rexandroid.R;
-import com.rex.rexandroid.component.CommonLazyFragment;
+import com.rex.rexandroid.component.fragment.CommonLazyFragment;
 
 
 /**
