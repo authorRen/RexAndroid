@@ -1,5 +1,6 @@
 package com.rex.rexandroid.net;
 
+import com.rex.rexandroid.BuildConfig;
 import com.rex.rexandroid.common.AppConfig;
 import com.rex.rexandroid.util.FileUtil;
 
@@ -21,7 +22,7 @@ public class OkHttpProvider {
 
     private OkHttpClient mOkHttpClient;
 
-    public static OkHttpProvider newInstance() {
+    public static OkHttpProvider getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
@@ -34,10 +35,20 @@ public class OkHttpProvider {
     }
 
     private void initOkHttp() {
-        new OkHttpClient.Builder()
+        OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .connectTimeout(DEFAULT_CONNECT_TIMEOUT, TimeUnit.SECONDS)
-                .writeTimeout(DEFAULT_WRITE_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(DEFAULT_READ_TIMEOUT, TimeUnit.SECONDS)
+                .writeTimeout(DEFAULT_WRITE_TIMEOUT, TimeUnit.SECONDS)
                 .cache(new Cache(FileUtil.createDir(AppConfig.OK_HTTP_CACHE_DIR), AppConfig.OK_HTTP_CACHE_SIZE));
+
+        if (BuildConfig.DEBUG) {
+//            builder.addInterceptor(new LoggerInterceptor());
+        }
+
+        mOkHttpClient = builder.build();
+    }
+
+    public OkHttpClient getOkHttpClient() {
+        return mOkHttpClient;
     }
 }
